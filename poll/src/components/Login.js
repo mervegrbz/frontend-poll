@@ -5,7 +5,7 @@ import Button from './Button';
 import { Redirect } from 'react-router-dom'
 import axios from 'axios';
 function Login({ children }) {
-    const { register, handleSubmit, errors } = useForm();
+    const { register, handleSubmit } = useForm();
     const [serverResponse, setServerResponse] = useState('')
     const [pop, setpop] = useState(false)
 
@@ -16,7 +16,7 @@ function Login({ children }) {
         setpop(true)
         await new Promise(r => setTimeout(r, 2000));
         setpop(false)
-        if (res.data.message == "Success") {
+        if (res.data.message === "Success") {
             localStorage.setItem('email', data.email);
             return <Redirect to={{ pathname: "/", state: { email: data.email } }} />
         }

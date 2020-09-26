@@ -1,22 +1,21 @@
 
 import React, { useState } from 'react';
 import style from './CreatePoll.module.css'
-import VoteChart from "./VoteChart"
 import { useForm } from "react-hook-form"
 import axios from "axios"
 import Minus from "./Minus.js"
 import Button from "./Button"
 function CreatePoll() {
     const [options, setOptions] = useState(['', ''])
-    const { register, handleSubmit, errors } = useForm();
+    const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        if (data[0] == '' | data[1] == '') {
+        if (data[0] === '' | data[1] === '') {
             alert('You must enter at least 2 options')
             return false
         }
         console.log('submitted');
-        console.log(data);
-        console.log(options.length);
+        // console.log(data);
+        // console.log(options.length);
         var inputs = []
         for (var i = 0; i < options.length; i++) {
             // inputs.push(data.shift())
@@ -36,11 +35,11 @@ function CreatePoll() {
 
     }
     function addOption(e) {
-        if (e.target.name == options.length - 1)
+        if (parseInt(e.target.name) === options.length - 1)
             AddButton();
         options[e.target.name] = e.target.value;
         setOptions(options)
-     
+
 
     }
 
@@ -50,11 +49,11 @@ function CreatePoll() {
     }
     function deleteOption(e) {
         var indexToBeRemoved = (e.target.id);
-        if(options.length==2)
+        if (options.length === 2)
             return
         options.splice(indexToBeRemoved, 1)
         setOptions(options)
-       
+
     }
 
     return (
@@ -77,7 +76,7 @@ function CreatePoll() {
                     return <div name={index} className={style.otherbutton} >
                         <input ref={register} name={index} value={options[index]} onChange={addOption} type="text" placeholder='Write an option'>
                         </input>
-                        <button id={index} onClick={deleteOption } className={style.svgbutton} >
+                        <button id={index} onClick={deleteOption} className={style.svgbutton} >
                             <Minus id={index} name={index} />
                         </button>
                     </div>
