@@ -1,0 +1,65 @@
+.logInForm{
+    color: aqua;
+    display:flex;
+    font-size:1.5rem;
+    /* justify-content: flex-start; */
+    /* align-self: center; */
+    flex-direction:column;
+}
+.container{
+    /* w/idth: 30%; */
+    display: flex;
+    align-items: flex-start;
+    justify-content:center;
+}
+.logInForm input{
+    font-size:1.5rem;
+    margin:5px;
+
+}
+.log{
+   margin-top: 10px !important;
+   width: 40% ;
+   display: flex;
+   align-self: flex-end;
+   justify-content:center;
+}
+
+input{
+    border-radius: 10px;
+}
+.foot{
+    display: flex;
+    flex-direction: row;
+}
+.popup{
+    background-color: rgba(0,0,0,0.8);
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    top:0;
+    display:flex;
+
+    /* align-items:center; */
+     justify-content:center; 
+
+}
+.modal{
+    /* max-width: 400px; */
+    position:fixed;
+    color:rgb(116, 5, 5);
+    display:flex;
+    margin-left:auto;
+    top:10%;
+    align-items:center;
+    z-index: 1;
+    background-color:rgba(190, 184, 184, 0.8);
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+    padding:10px;
+    border-radius:20px;
+
+
+}

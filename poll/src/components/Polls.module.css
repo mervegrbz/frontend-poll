@@ -1,0 +1,36 @@
+.pollcard{
+display: flex;
+flex-direction: column;
+padding-left:50px;
+margin-bottom:10px;
+width: 100vh;
+border-radius:20px;
+}
+.pollcard:hover{
+    background-color:rgb(128, 128, 128,0.6);
+    box-shadow: 0 1px;
+
+}
+.option{
+    display: grid;
+    grid-template-columns:100px 1fr 100px ;
+    width: 90%; 
+    margin:10px;
+    border-radius:20px;
+    
+}
+.option span{
+    overflow: auto;
+    
+    
+}
+.option:hover{
+    background-color:rgb(128, 128, 128,0.6);
+    transition:220ms;
+
+
+}
+.link{
+    text-decoration:none!important;
+    color:inherit;
+}
