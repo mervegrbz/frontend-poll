@@ -7,9 +7,9 @@ import Signup from './components/Signup.js'
 
 import './App.css';
 import CreatePoll from "./components/CreatePoll.js"
-console.log(CreatePoll);
+
 var DATA_URL = "http://192.168.137.1:8080"
-var url = process.env.REACT_APP_SERVER + "/poll/getAll"
+var url = "http://35.209.140.129:8082" + "/poll/getAll"
 console.log(url);
 
 function App() {

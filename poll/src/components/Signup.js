@@ -39,7 +39,6 @@ function Signup({ children }) {
             <form className={style.logInForm} onSubmit={handleSubmit(onSubmit)}>
                 <input ref={register({ required: true })} name='email' type="email" placeholder="Email"></input>
                 <input ref={register({ required: true ,maxLength:30,minLength:7})} name='password' type="password" placeholder="Password"></input>
-               
                 {errors.password?.type === "required" &&
                 "Your input is required"}
                  {errors.password?.type === "minLength" &&

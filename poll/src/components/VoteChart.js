@@ -6,29 +6,32 @@ import axios from "axios"
 import Button from './Button';
 import { PieChart } from 'react-minimal-pie-chart';
 
+var colors = [
+    
+    "#AAAAAA",
+    "#0074D9",
+    "#2ECC40",
+    "#7FDBFF",
+    "#FF851B",
+    "#39CCCC",
+    "#3D9970",
+    "#01FF70",
+    "#DDDDDD",
+    "#FFDC00",
+    "#FF4136",
+  ];
 
 function VoteChart(props) {
     
-    var colors = [
-        "#0074D9",
-        "#7FDBFF",
-        "#39CCCC",
-        "#3D9970",
-        "#2ECC40",
-        "#01FF70",
-        "#FFDC00",
-        "#FF851B",
-        "#FF4136",
-        "#AAAAAA",
-        "#DDDDDD",
-      ];
-    var DATA_URL = "http://192.168.137.1:8080"
+    
     var url = process.env.REACT_APP_SERVER + "/poll/vote"
+    
     const { register, handleSubmit, errors } = useForm();
     const data = props.location.state.item;
     const pieTable = Object.keys(data.options).map((option, index)=>{return {title: option, color: colors[index],value: data.options[option]}})
     var pollId = data._id
-    const onSubmit = data => {
+   
+    const onSubmit = async data => {
         var chosen = [];
         var keys = Object.keys(data);
         if (keys[0] == 'vote') {
@@ -45,8 +48,9 @@ function VoteChart(props) {
             pollId: pollId,
             selectedOptionIndex: chosen
         })
-        axios.post(url, jsonfile)
-        window.location="/Pollcard"
+        var res=await axios.post(url, jsonfile)
+        console.log(res);
+        // window.location="/Pollcard"
     }
     return (
         <div className={style.container}>
