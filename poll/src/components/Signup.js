@@ -2,11 +2,10 @@ import React, { useState } from 'react'
 import style from './Login.module.css'
 import { useForm } from 'react-hook-form'
 import Button from './Button';
-import classname from 'classnames'
 import axios from 'axios';
 import {Redirect} from 'react-router-dom'
 
-function Signup({ children }) {
+function Signup() {
     const { register, handleSubmit,watch, errors } = useForm();
     const watchPass=watch("password","")
     const watchrePass=watch("rePassword","")
@@ -16,13 +15,13 @@ function Signup({ children }) {
     async function onSubmit(data) {
         console.log(data);
         var API_URL = process.env.REACT_APP_SERVER + '/user/create'
-        if (data.password == data.rePassword) {
+        if (data.password === data.rePassword) {
             var res = await axios.post(API_URL, data)
             console.log(res);
             setServerResponse(res.data.message)
 
 
-            if (res.data.message == 'Success') {
+            if (res.data.message === 'Success') {
                 localStorage.setItem('email', data.email)
                 console.log('done');
                 // return <Redirect to={{pathname:"/",state:{email:data.email}}}/>
@@ -46,7 +45,7 @@ function Signup({ children }) {
                 <input ref={register({ required: true })} name='rePassword' type="password" placeholder="Confirm Password"></input>
                 {errors.rePassword?.type === "required" &&
                 "Your input is required"}
-                {watchPass!=watchrePass&&<div>passwords should be the same</div>}
+                {watchPass!==watchrePass&&<div>passwords should be the same</div>}
                 <Button className={style.log} type="submit">Log In</Button>
             </form>
             {serverResponse==="Success"&& <Redirect to="/Pollcard"/>}

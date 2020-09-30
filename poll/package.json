@@ -11,7 +11,9 @@
     "react-hook-form": "^6.8.4",
     "react-minimal-pie-chart": "^8.0.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "axios": "0.20.0",
+    "classnames": "2.2.6"
   },
   "scripts": {
     "start": "react-scripts start",
